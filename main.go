@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	db, err := sql.Open("mysql", "root:password@db/nippo")
+	db, err := sql.Open("mysql", "root:@db/nippo")
 	if err != nil {
 		panic(err)
 	}
