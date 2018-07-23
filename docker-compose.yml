@@ -1,0 +1,28 @@
+version: "2"
+services:
+  app:
+    build: .
+    container_name: nippo-app
+    environment:
+      VIRTUAL_HOST: nippo.to-hutohu.com
+      LETSENCRYPT_HOST: nippo.to-hutohu.com
+      LETSENCRYPT_EMAIL: tohu.soy@gmail.com
+    restart: always
+    ports:
+      - "3232:8080"
+    networks:
+      - docker-nginx_default
+  db:
+    image: mariadb
+    container_name: nippo-db
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: nippo
+    restart: always
+
+networks:
+  docker-nginx_default:
+    external: true
+
