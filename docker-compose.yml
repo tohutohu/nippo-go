@@ -8,20 +8,28 @@ services:
       LETSENCRYPT_HOST: nippo.to-hutohu.com
       LETSENCRYPT_EMAIL: tohu.soy@gmail.com
     restart: always
+    depends_on:
+      - db
     ports:
       - 8080
     networks:
       - docker-nginx_default
+      - nippo-go_default
   db:
     image: mariadb
     container_name: nippo-db
     volumes:
       - ./db:/var/lib/mysql
+    command: mysqld --character-set-server=utf8mb4
     environment:
       MYSQL_DATABASE: nippo
+      MYSQL_ROOT_PASSWORD: password
     restart: always
-
+    networks:
+      - nippo-go_default
 networks:
   docker-nginx_default:
     external: true
+  nippo-go_default:
+    external: false
 

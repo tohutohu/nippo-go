@@ -8,6 +8,18 @@
   version = "v1.4.0"
 
 [[projects]]
+  name = "github.com/jinzhu/gorm"
+  packages = ["."]
+  revision = "6ed508ec6a4ecb3531899a69cbc746ccf65a4166"
+  version = "v1.9.1"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/jinzhu/inflection"
+  packages = ["."]
+  revision = "04140366298a54a039076d798123ffa108fff46c"
+
+[[projects]]
   name = "github.com/labstack/echo"
   packages = ["."]
   revision = "6d227dfea4d2e52cb76856120b3c17f758139b4e"
@@ -70,6 +82,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "9be774bd1df1b2a0fe619412849bd7765fe1723c2040a5d563249415454704bb"
+  inputs-digest = "f1874444b53dbd8d67cddbaa0c2f13c709acfb237edacabce4524114a204f21d"
   solver-name = "gps-cdcl"
   solver-version = 1
